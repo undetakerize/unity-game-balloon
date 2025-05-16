@@ -1,0 +1,58 @@
+ 
+# ========== Unity Project Ignore ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+
+# ========== Visual Studio / JetBrains Rider ==========
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# ========== OS-generated files ==========
+.DS_Store
+Thumbs.db
+
+# ========== Unity Cache / Others ==========
+*.apk
+*.aab
+*.keystore
+*.mdb
+*.pdb
+*.ilk
+*.log
+
+# ========== Crash and Debug ==========
+*.stacktrace
+*.dmp
+
+# ========== Auto-generated ==========
+/Assets/Plugins/Editor/JetBrains*
+/obj/
+/*.svd
+
+# ========== Unity Build Artifacts ==========
+*.unitypackage
+*.apk
+*.aab
+*.xcworkspace
+*.xcuserstate
+
+# ========== Rider Unity Cache ==========
+.idea/
+*.sln.iml
+
+# ========== DOTween (optional: keep if Pro or manually installed) ==========
+Assets/Plugins/Demigiant/DOTween/Editor/DOTweenSetup.cs
