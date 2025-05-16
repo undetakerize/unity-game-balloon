@@ -11,4 +11,4 @@ then open the project with unity hub.
 open scene 
 ```Assets/Scenes```
 then open 
-```Game``` Scene
+```Game``` .unity Scene
