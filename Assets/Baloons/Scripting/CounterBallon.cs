@@ -3,53 +3,56 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CounterBallon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+namespace Baloons.Scripting
 {
-    [SerializeField] private TMP_Text counterText;
-    [SerializeField] private Transform scaleTarget;
-    public float scaleMultiplier = 1.2f;
-    private int currentCount = 0;
-    private Vector3 originalScale;
-    private float originalScaleY;
 
-    private void Awake()
+    public class CounterBallon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        if (scaleTarget == null)
-            scaleTarget = transform;
+        [SerializeField] private TMP_Text counterText;
+        [SerializeField] private Transform scaleTarget;
+        public float scaleMultiplier = 1.2f;
+        private int currentCount = 0;
+        private float originalScaleY;
 
-        originalScaleY = 1;
-    }
-
-    public void IncrementCounter()
-    {
-        int fromValue = currentCount;
-        currentCount++;
-        AnimateCounter(fromValue, currentCount);
-    }
-
-    public void ResetCounter()
-    {
-        currentCount = 0;
-        counterText.text = "0";
-    }
-
-    private void AnimateCounter(int fromValue, int toValue)
-    {
-        if (counterText == null) return;
-
-        DOTween.To(() => fromValue, x =>
+        private void Awake()
         {
-            counterText.text = x.ToString();
-        }, toValue, 0.3f).SetEase(Ease.OutQuad);
-    }
+            if (scaleTarget == null)
+                scaleTarget = transform;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        scaleTarget.DOScaleY(originalScaleY * scaleMultiplier, 0.2f).SetEase(Ease.OutBack);
-    }
+            originalScaleY = 1;
+        }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        scaleTarget.DOScaleY(originalScaleY, 0.2f).SetEase(Ease.OutBack);
+        public void IncrementCounter()
+        {
+            int fromValue = currentCount;
+            currentCount++;
+            AnimateCounter(fromValue, currentCount);
+        }
+
+        public void ResetCounter()
+        {
+            currentCount = 0;
+            counterText.text = "0";
+        }
+
+        private void AnimateCounter(int fromValue, int toValue)
+        {
+            if (counterText == null) return;
+
+            DOTween.To(() => fromValue, x =>
+            {
+                counterText.text = x.ToString();
+            }, toValue, 0.3f).SetEase(Ease.OutQuad);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            scaleTarget.DOScaleY(originalScaleY * scaleMultiplier, 0.2f).SetEase(Ease.OutBack);
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            scaleTarget.DOScaleY(originalScaleY, 0.2f).SetEase(Ease.OutBack);
+        }
     }
 }
